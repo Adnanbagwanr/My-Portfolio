@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Adnan's portfolio showcasing web development, app creation, and video editing projects.">
+  <meta name="keywords" content="Adnan, Portfolio, Web Development, React Native, Python, C#, Projects">
+
+  <title>Adnan - Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="path-to-your-favicon.png" type="image/png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* Added for better layout handling */
+    }
+
+    body {
+      background-color: rgb(0, 0, 33);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background-color: rgb(18, 18, 62);
+      display: flex;
+      justify-content: space-around;
+      /* Adjusted to ensure proper spacing */
+      align-items: center;
+      height: 80px;
+      padding: 0 20px;
+      /* Added padding for better alignment */
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+    }
+
+    nav .left {
+      font-size: 1.5rem;
+      /* Corrected class usage and style */
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 23px;
+      /* Used gap for spacing */
+      /* background-color: ; */
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      /* Added to match Poppins weights */
+      padding: 10px 16px;
+      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      border-radius: 0.5rem;
+
+    }
+
+    nav ul li a:hover {
+      background-color: rgb(153, 79, 221);
+      /* Example hover color */
+      text-decoration: none;
+      /* Added underline on hover */
+      border-radius: 0.5rem;
+      transition: 0.5s;
+
+    }
+
+    .nav-links.show {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+
+    .firstsection {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 130px 0;
+
+    }
+
+    .firstsection>div {
+      width: 40%;
+    }
+
+    .leftsection {
+      font-size: 2.5rem;
+      padding-left: 50px;
+
+    }
+
+    .rightsection img {
+      width: 80%;
+      margin: 30px 0;
+    }
+
+    .purple {
+      color: rgb(153, 79, 221);
+
+    }
+
+    #element {
+      color: rgb(153, 79, 221);
+    }
+
+    .thirdsection {
+      max-width: 80vw;
+      margin: auto;
+      height: 100vh;
+      flex-direction: column;
+      /* Stack on smaller screens */
+      padding: 20px;
+
+    }
+
+    .secondsection {
+      max-width: 80vw;
+      margin: auto;
+      height: 60vh;
+      flex-direction: column;
+      /* Stack on smaller screens */
+      padding: 20px;
+
+    }
+
+    .fourthsection {
+      max-width: 80vw;
+      margin: auto;
+      height: 150vh;
+      flex-direction: column;
+      /* Stack on smaller screens */
+      padding: 20px;
+    }
+
+
+    main hr {
+      background: #9c97f1;
+      border: 0;
+      height: 1.2px;
+      margin: 40px 84px;
+
+    }
+
+    .text-gray {
+      color: grey
+    }
+
+    .thirdsection h1 {
+      font-size: 1.9rem;
+
+    }
+
+    .secondsection h1 {
+      font-size: 1.9rem;
+
+    }
+
+    .thirdsection .box {
+      background: white;
+      width: 75vw;
+      margin: 56px 0;
+      height: 2px;
+      display: flex;
+    }
+
+    .thirdsection .vertical {
+      height: 93px;
+      width: 1px;
+      background-color: white;
+      margin: 0 100px;
+    }
+
+    .image-top {
+      width: 23px;
+      position: relative;
+      top: -32px;
+      left: -9px;
+    }
+
+    .vertical-title {
+      position: relative;
+      top: 75px;
+      width: 160px;
+    }
+
+    .vertical-desc {
+      position: relative;
+      color: gray;
+      font-size: 10px;
+      width: 150px;
+      top: 75px;
+    }
+
+    .footer {
+      background-color: rgb(18, 18, 62);
+      height: 90px;
+    }
+
+    .footer {
+      display: flex;
+      padding: 23px 122px;
+      justify-content: space-evenly;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li a {
+      list-style: none;
+      text-decoration: none;
+      color: white
+    }
+
+    .footer ul li a:hover {
+      list-style: none;
+      text-decoration: underline;
+      color: rgb(146, 105, 211)
+    }
+
+    .footer .footer-first {
+      width: 233px;
+    }
+
+    footer .footer-rights {
+      text-align: center;
+      color: gray;
+    }
+
+    .leftsection .btn {
+      background: rgb(18, 18, 62);
+
+      /* border: 2px solid; */
+      border-radius: 6px;
+      font-size: 20px;
+      padding: 15px 20px;
+      cursor: pointer;
+      /* box-shadow: gray; */
+    }
+
+    .leftsection .btn a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .buttons {
+      padding-inline: 30px;
+    }
+
+    .leftsection .btn:hover {
+      background-color: rgb(153, 79, 221);
+      color: #ffffff;
+      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    @media (max-width: 768px) {
+      .firstsection {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .leftsection,
+      .rightsection {
+        width: 90%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .firstsection,
+      .thirdsection,
+      .secondsection,
+      .fourthsection {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .rightsection img {
+        width: 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+    }
+
+
+    .image {
+      width: 20px;
+      height: 20px;
+      margin-left: 28px;
+
+    }
+
+
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 0;
+      background: rgb(0, 0, 33);
+      flex-direction: column;
+      /* Stack on smaller screens */
+      width: 100%;
+      /* padding: 0 10px; */
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 75vw;
+      margin-left: 170px;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin-left: 170px;
+    }
+
+    .contact label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 75vw;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .contact button {
+      background: rgb(18, 18, 62);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+    }
+
+    .contact button:hover {
+      background: rgb(153, 79, 221);
+
+    }
+
+    /* About Section */
+    .secondsection {
+      /* padding: 50px 0; */
+      background: rgb(0, 0, 33);
+      text-align: center;
+    }
+
+    .secondsection h3 {
+      align-items: center;
+    }
+
+    .secondsection p {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgb(18, 18, 62);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+      margin-top: 20px;
+      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+    }
+
+    .btn:hover {
+      background: rgb(153, 79, 221);
+
+    }
+
+    .fourthsection h1 {
+      font-size: 1.9rem;
+    }
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 50px;
+
+    }
+
+    .item {
+      flex: 1 1 calc(33.333% - 40px);
+      margin: 10px;
+      text-align: center;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      overflow: hidden;
+      color: #000;
+      padding: 10px;
+      font-size: 12px;
+
+    }
+
+    .item img {
+      max-width: 100%;
+      border-bottom: 1px solid #ddd;
+      border-radius: 0.5rem;
+    }
+
+    .item img:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 20px rgba(153, 79, 221, 0.6);
+      transition: all 0.3s ease;
+    }
+
+
+
+    .item h3 {
+      margin: 10px 0;
+    }
+
+    /* Style for the social media links */
+    .social-media-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      /* padding: 20px; */
+    }
+
+    .social-media-links a {
+      font-size: 2rem;
+      /* Adjust size as needed */
+      color: white;
+      /* Color for the icons */
+      transition: color 0.3s ease;
+      text-decoration: none;
+      /* Remove underline */
+    }
+
+    .social-media-links a:hover {
+      color: rgb(153, 79, 221);
+      /* Hover color */
+    }
+
+    .social-media-links i {
+      transition: transform 0.3s ease;
+    }
+
+    .social-media-links a:hover i {
+      transform: scale(1.1);
+      /* Slightly enlarge the icon on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="left">Adnan's Portfolio</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="right">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#workexperience">Work-Ecperience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="firstsection" id="home">
+      <div class="leftsection">
+        Hi, my name is <span class="purple">Adnan</span>
+        <div>and I am a passionate</div>
+        <div>Web Developer</div>
+        <span id="element"></span>
+        <div class="buttons">
+          <button class="btn"><a
+              href="https://drive.google.com/file/d/1jMOosXi0_S8_fMJL7HtlqTU95H1KGmVu/view?usp=sharing">Download
+              Resume</a></button>
+          <button class="btn"><a href="https://github.com/Adnanbagwanr/CODSOFT.git">Visit Github</a></button>
+        </div>
+      </div>
+      <div class="rightsection">
+        <img src="pg.png.png" alt="Profile Image">
+      </div>
+    </section>
+    <hr>
+    <section class="secondsection" id="about">
+      <h1>About Me</h1>
+      <div class="container">
+        <h3>Welcome to My Portfolio</h3>
+        <p>Hello! I am Adnan, a passionate and skilled developer with experience in multiple domains of software
+          development. Proficient in building dynamic websites and applications using HTML, CSS, JavaScript, and
+          frameworks like React Native. Skilled in creating scalable APIs and managing databases like MongoDB, with a
+          focus on performance optimization and seamless integration. Intermediate-level knowledge in C# for web and
+          desktop applications, including practical projects like college-purpose web apps and student management
+          systems. Continuously enhancing skills in web development, app development, and computer vision, with a
+          strong commitment to mastering advanced tools and technologies. My diverse experience and dedication to
+          learning drive my passion for creating efficient, user-focused solutions across various platforms.
+        </p>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+
+    </section>
+    <hr>
+    <section class="thirdsection" id="workexperience">
+      <span class="text-gray">What I have done so far</span>
+      <h1>Work Experience</h1>
+      <div class="box">
+        <div class="vertical">
+          <img class="image-top" src="html.png" alt="">
+          <div class="vertical-title">
+            HTML Developer (2023-2024)
+          </div>
+          <div class="vertical-desc">
+            As a web developer, HTML has been a foundational skill in my journey. It allows me to create structured and
+            organized content for websites and applications.I am well-versed in using HTML elements and attributes to
+            build functional and visually appealing web pages. I focus on creating clean, semantic, and organized
+            structures. While improving my CSS skills, I use HTML as a base for styling elements, ensuring responsive
+            and user-friendly designs.
+          </div>
+        </div>
+        <div class="vertical">
+          <img class="image-top" src="django.png" alt="">
+          <div class="vertical-title">
+            Django Developer (2022-2023)
+          </div>
+          <div class="vertical-desc">
+            As a Django developer, HTML plays a critical role in creating dynamic, user-friendly web applications. My
+            experience combines front-end development with Django's powerful backend framework.I design templates that
+            interact seamlessly with views and models in Django. This includes generating forms for user inputs and
+            displaying query results from the database. Using Django's template inheritance system, I create reusable
+            HTML structures, such as headers, footers, and navigation bars, to maintain consistency across multiple
+            pages.
+
+
+          </div>
+        </div>
+        <div class="vertical">
+          <img class="image-top" src="videoed.png" alt="">
+          <div class="vertical-title">
+            Video Editor (2023-2024)
+          </div>
+          <div class="vertical-desc">
+            Proficient in cutting, merging, and enhancing footage to create polished videos that align with project
+            goals.Skilled in using video editing tools like Adobe Premiere Pro, Final Cut Pro, or similar applications
+            for efficient editing and effects. Ability to craft compelling narratives through effective sequencing,
+            transitions, and pacing. Strong focus on color correction, frame alignment, and seamless transitions to
+            deliver high-quality outputs.
+          </div>
+        </div>
+        <div class="vertical">
+          <img class="image-top" src="csharp.png" alt="">
+          <div class="vertical-title">
+            C#Sharp Developer (2023-2024)
+          </div>
+          <div class="vertical-desc">
+            I have hands-on experience in C# development, utilizing it to build functional and robust applications.
+            Proficient in developing Windows-based applications and web apps using C# in combination with .NET
+            frameworks. Strong understanding of OOP principles, implementing modular, reusable, and maintainable code
+            structures. I strive to expand my knowledge of advanced C# concepts, libraries, and frameworks to enhance
+            application scalability and performance.
+          </div>
+        </div>
+        <div class="vertical">
+          <img class="image-top" src="nodejs.png" alt="">
+          <div class="vertical-title">
+            Backend Developer (2023-2024)
+          </div>
+          <div class="vertical-desc">
+            Proficient in designing MongoDB schemas and collections, ensuring optimal data structure for specific
+            application needs. Skilled in creating normalized or denormalized data models based on project requirements,
+            leveraging MongoDB's flexibility for handling complex data. Experience in implementing Create, Read, Update,
+            and Delete (CRUD) operations, enabling seamless interaction with the database.
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="fourthsection" id="projects">
+      <h1>Recent Projects</h1>
+      <div class="item-container">
+        <div class="items">
+          <div class="item">
+            <img src="Project1.jpg" alt="Project Image" loading="lazy">
+            <h3>Student Management Application</h3>
+            <p>Developed a comprehensive student management application using C#. The app allows administrators
+              to manage student records, including enrollment, grades, and attendance. Implemented features
+              such as user authentication, data validation, and a dynamic dashboard for easy navigation.</p>
+          </div>
+          <div class="item">
+            <img src="Project2.png" alt="Project Image" loading="lazy">
+            <h3>Screen Recorder Application</h3>
+            <p>The Screen Recorder project is being developed using Python, with the integration of NumPy, OpenCV, and
+              PyAutoGUI libraries to capture and save screen activities effectively. PyAutoGUI handles the screen
+              capturing process, while OpenCV processes the frames for efficient video encoding.
+            </p>
+          </div>
+          <div class="item">
+            <img src="Project3.jpg" alt="Project Image" loading="lazy">
+            <h3>Personal Portfolio Website</h3>
+            <p>Created a personal portfolio website to showcase my skills and projects as a software developer.
+              Designed with a modern aesthetic, the site features smooth scrolling, an interactive gallery of
+              my work, and a contact form. Built using HTML, CSS, and JavaScript to ensure responsiveness
+              across all devices.</p>
+          </div>
+          <div class="item">
+            <img src="Project4.jpg" alt="Project Image" loading="lazy">
+            <h3>Face Recognization System</h3>
+            <p>The Face Recognition System project is developing focuses on identifying and verifying individuals
+              using their facial features. The project leverages advanced algorithms and techniques from computer vision
+              to enhance accuracy and efficiency. This project plans to integrate OpenCV and Python libraries for face
+              detection and recognition tasks.
+            </p>
+          </div>
+          <div class="item">
+            <img src="Project5.jpg" alt="Project Image" loading="lazy">
+            <h3>Cafe Management System</h3>
+            <p>The Cafe Management System is design to manage tasks with esiar way and handle orders in bulk quantity.
+              In this project user can add produts from menu and price will be automatically increase. The total amount
+              and order will show to exist user. This project is design for small scale business. It emphasis the
+              quality and quntity. </p>
+          </div>
+          <div class="item">
+            <img src="Project7.jpg" alt="Project Image" loading="lazy">
+            <h3>To Do Application Tkinter</h3>
+            <p>CThe To-Do application project is being developed using Python and Tkinter to provide a user-friendly
+              interface for managing tasks efficiently. The application allows users to add, edit, and delete tasks
+              while displaying them in a structured manner. Tkinter's widgets are utilized for creating an intuitive
+              design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <form action="https:\\formsubmit.co\el\retegu" method="POST">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <script>
+      function validateForm() {
+        const name = document.querySelector('input[name="name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        if (!name || !email) {
+          alert('Please fill in all required fields!');
+          return false;
+        }
+        return true;
+      }
+    </script>
+    <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+      }
+    </script>
+    <script>
+      const element = document.getElementById('element');
+      const text = "a Web Developer";
+      let index = 0;
+
+      function typeText() {
+        element.textContent += text[index];
+        index++;
+        if (index < text.length) {
+          setTimeout(typeText, 100);
+        }
+      }
+      typeText();
+    </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed('#element', {
+        strings: ['Software Developer', 'Web Designer', 'Web Developer', 'Video Editor'],
+        typeSpeed: 50,
+      });
+    </script>
+  </main>
+  <footer>
+    <div class="footer">
+      <div class="footer-first">
+        <h3>Adnan's Developer Portfolio</h3>
+      </div>
+      <div class="social-media-links">
+        <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-rights">
+      Copyright: &#169; 2024 | Adnan's Portfolio | All rights reserved
+    </div>
+  </footer>
+</body>
+
+</html>
