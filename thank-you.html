@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <style>
+    /* Resetting some default styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Main styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #4caf50, #87ceeb);
+      color: #fff;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .thank-you-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .thank-you-container h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .thank-you-container p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .thank-you-container a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff9800;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .thank-you-container a:hover {
+      background-color: #ff5722;
+    }
+
+    /* Mobile Friendly */
+    @media (max-width: 576px) {
+      .thank-you-container h1 {
+        font-size: 2rem;
+      }
+
+      .thank-you-container p {
+        font-size: 1rem;
+      }
+
+      .thank-you-container a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <h1>Thank You!</h1>
+    <p>Your form has been successfully submitted. We appreciate your time and will get back to you shortly.</p>
+    <a href="index.html">Back to Home</a>
+  </div>
+</body>
+</html>
