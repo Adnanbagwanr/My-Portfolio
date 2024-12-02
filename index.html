@@ -8,90 +8,204 @@
   <meta name="description"
     content="Adnan's portfolio showcasing web development, app creation, and video editing projects.">
   <meta name="keywords" content="Adnan, Portfolio, Web Development, React Native, Python, C#, Projects">
-
   <title>Adnan - Developer Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="path-to-your-favicon.png" type="image/png">
-
   <style>
+    /* General Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      /* Added for better layout handling */
     }
 
+    /* Body Styling */
     body {
       background-color: rgb(0, 0, 33);
       color: white;
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
+    :root {
+      --bg-color: rgb(0, 0, 33);
+      /* Dark background for default theme */
+      --text-color: white;
+      /* Text color for dark theme */
+      --link-bg: rgb(153, 79, 221);
+      /* Link background color for dark theme */
+    }
+
+    [data-theme="light"] {
+      --bg-color: white;
+      --text-color: black;
+      --link-bg: rgb(0, 122, 255);
+      /* Link background color for light theme */
+    }
+
+
+    /* Navigation Styling */
     nav {
       background-color: rgb(18, 18, 62);
       display: flex;
       justify-content: space-around;
-      /* Adjusted to ensure proper spacing */
       align-items: center;
       height: 80px;
       padding: 0 20px;
-      /* Added padding for better alignment */
-      position: sticky;
+      position: fixed;
       top: 0;
       z-index: 10;
-
+      /* background: transparent; */
+      width: 100%;
     }
+
 
     nav .left {
       font-size: 1.5rem;
-      /* Corrected class usage and style */
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 23px;
-      /* Used gap for spacing */
-      /* background-color: ; */
+      /* gap: 20px; */
     }
 
     nav ul li a {
       text-decoration: none;
       color: white;
       font-weight: 600;
-      /* Added to match Poppins weights */
-      padding: 10px 16px;
-      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      padding: 8px 12px;
+      box-shadow: 0px 6px 20px rgba(255, 87, 51, 0.6);
       border-radius: 0.5rem;
-
+      transition: background 0.3s, transform 0.3s;
+      /* background:#1e1e2f ; */
     }
 
     nav ul li a:hover {
       background-color: rgb(153, 79, 221);
-      /* Example hover color */
       text-decoration: none;
-      /* Added underline on hover */
       border-radius: 0.5rem;
-      transition: 0.5s;
-
+      transform: scale(1.05);
     }
 
+
+    /* Default: Hidden navigation menu for mobile */
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      right: 10px;
+      width: 100%;
+      background-color: #1e1e2f;
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+    }
+
+    .left {
+      font-weight: 800;
+    }
+
+
+
+    /* Backdrop for mobile mode (optional, if used) */
+    .backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9;
+    }
+
+    .backdrop.show {
+      display: block;
+    }
+
+    /* Active link styles */
+    .nav-links li a.active {
+      background-color: rgb(255, 85, 0);
+      color: white;
+      border-radius: 0.5rem;
+      transform: scale(1.1);
+    }
+
+    /* Navigation links visible when menu is open (mobile view) */
     .nav-links.show {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      /* Flexbox layout for vertical stacking */
+      opacity: 1;
+      /* Make visible */
+      transform: translateY(0);
+      max-width: 100%;
+      /* Slide into view */
+      gap: 20px;
     }
 
+    .btnn {
+      margin-right: 20px;
+    }
+
+    /* Hamburger menu button (hidden by default for large screens) */
+    .hamburger-menu {
+      display: none;
+      /* Hidden on desktop */
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    /* Hamburger spans for the icon lines */
+    .hamburger-menu span {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* Hamburger active state animations */
+    .hamburger-menu.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Section Styling */
+    main hr {
+      background: #9c97f1;
+      border: 0;
+      height: 1.2px;
+      margin: 40px 84px;
+    }
 
     .firstsection {
       display: flex;
       justify-content: space-around;
       align-items: center;
       margin: 130px 0;
-
     }
 
     .firstsection>div {
@@ -101,7 +215,6 @@
     .leftsection {
       font-size: 2.5rem;
       padding-left: 50px;
-
     }
 
     .rightsection img {
@@ -111,146 +224,19 @@
 
     .purple {
       color: rgb(153, 79, 221);
-
     }
 
     #element {
       color: rgb(153, 79, 221);
     }
 
-    .thirdsection {
-      max-width: 80vw;
-      margin: auto;
-      height: 100vh;
-      flex-direction: column;
-      /* Stack on smaller screens */
-      padding: 20px;
-
-    }
-
-    .secondsection {
-      max-width: 80vw;
-      margin: auto;
-      height: 60vh;
-      flex-direction: column;
-      /* Stack on smaller screens */
-      padding: 20px;
-
-    }
-
-    .fourthsection {
-      max-width: 80vw;
-      margin: auto;
-      height: 150vh;
-      flex-direction: column;
-      /* Stack on smaller screens */
-      padding: 20px;
-    }
-
-
-    main hr {
-      background: #9c97f1;
-      border: 0;
-      height: 1.2px;
-      margin: 40px 84px;
-
-    }
-
-    .text-gray {
-      color: grey
-    }
-
-    .thirdsection h1 {
-      font-size: 1.9rem;
-
-    }
-
-    .secondsection h1 {
-      font-size: 1.9rem;
-
-    }
-
-    .thirdsection .box {
-      background: white;
-      width: 75vw;
-      margin: 56px 0;
-      height: 2px;
-      display: flex;
-    }
-
-    .thirdsection .vertical {
-      height: 93px;
-      width: 1px;
-      background-color: white;
-      margin: 0 100px;
-    }
-
-    .image-top {
-      width: 23px;
-      position: relative;
-      top: -32px;
-      left: -9px;
-    }
-
-    .vertical-title {
-      position: relative;
-      top: 75px;
-      width: 160px;
-    }
-
-    .vertical-desc {
-      position: relative;
-      color: gray;
-      font-size: 10px;
-      width: 150px;
-      top: 75px;
-    }
-
-    .footer {
-      background-color: rgb(18, 18, 62);
-      height: 90px;
-    }
-
-    .footer {
-      display: flex;
-      padding: 23px 122px;
-      justify-content: space-evenly;
-    }
-
-    .footer ul {
-      list-style: none;
-    }
-
-    .footer ul li a {
-      list-style: none;
-      text-decoration: none;
-      color: white
-    }
-
-    .footer ul li a:hover {
-      list-style: none;
-      text-decoration: underline;
-      color: rgb(146, 105, 211)
-    }
-
-    .footer .footer-first {
-      width: 233px;
-    }
-
-    footer .footer-rights {
-      text-align: center;
-      color: gray;
-    }
-
     .leftsection .btn {
       background: rgb(18, 18, 62);
-
-      /* border: 2px solid; */
       border-radius: 6px;
-      font-size: 20px;
+      font-size: 1.25rem;
       padding: 15px 20px;
       cursor: pointer;
-      /* box-shadow: gray; */
+      box-shadow: gray;
     }
 
     .leftsection .btn a {
@@ -265,125 +251,38 @@
     .leftsection .btn:hover {
       background-color: rgb(153, 79, 221);
       color: #ffffff;
-      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      box-shadow: 0px 6px 20px rgba(255, 87, 51, 0.6);
+
       cursor: pointer;
       transition: 0.5s;
+      transform: scale(1.05);
     }
 
-    @media (max-width: 768px) {
-      .firstsection {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .leftsection,
-      .rightsection {
-        width: 90%;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      .firstsection,
-      .thirdsection,
-      .secondsection,
-      .fourthsection {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .rightsection img {
-        width: 100%;
-      }
-
-      nav ul {
-        flex-direction: column;
-      }
-    }
-
-
-    .image {
-      width: 20px;
-      height: 20px;
-      margin-left: 28px;
-
-    }
-
-
-
-    /* Contact Section */
-    .contact {
-      padding: 50px 0;
-      background: rgb(0, 0, 33);
-      flex-direction: column;
-      /* Stack on smaller screens */
-      width: 100%;
-      /* padding: 0 10px; */
-    }
-
-    .contact h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      width: 75vw;
-      margin-left: 170px;
-    }
-
-    .contact form {
-      max-width: 600px;
-      margin-left: 170px;
-    }
-
-    .contact label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-
-    .contact input,
-    .contact textarea {
-      width: 75vw;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    .contact button {
-      background: rgb(18, 18, 62);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
-    }
-
-    .contact button:hover {
-      background: rgb(153, 79, 221);
-
-    }
-
-    /* About Section */
+    /* Second Section Styling */
     .secondsection {
-      /* padding: 50px 0; */
-      background: rgb(0, 0, 33);
+      max-width: 80vw;
+      margin: auto;
+      height: auto;
+      padding: 20px;
+      background: #1e1e2f;
       text-align: center;
+      border-radius: 10px;
     }
 
-    .secondsection h3 {
-      align-items: center;
+    .secondsection h1 {
+      font-size: 1.9rem;
     }
-
+    .secondsection h3{
+      color: #555;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
     .secondsection p {
-      align-items: center;
-      justify-content: center;
+      font-size: 16px;
+      color: #ccc;
     }
+
+
 
     .btn {
       display: inline-block;
@@ -395,93 +294,502 @@
       font-weight: bold;
       transition: background 0.3s;
       margin-top: 20px;
-      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      /* box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4); */
     }
 
     .btn:hover {
       background: rgb(153, 79, 221);
+      box-shadow: 0px 6px 20px rgba(255, 87, 51, 0.6);
+    }
 
+    /* Third Section Styling */
+    .thirdsection {
+      max-width: 80vw;
+      margin: auto;
+      height: auto;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .thirdsection .box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 100%;
+    }
+
+    .thirdsection h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .thirdsection h4 {
+      margin-bottom: 5px;
+      text-align: center;
+      color: #555;
+    }
+
+
+    .thirdsection .vertical {
+      background: #1e1e2f;
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+      max-width: 300px;
+      text-align: left;
+      color: #555;
+    }
+
+    .vertical-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ff5733;
+    }
+
+    .vertical-desc {
+      font-size: 0.875rem;
+      color: #ccc;
+    }
+
+    .image-top {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Fourth Section Styling */
+    .fourthsection {
+      max-width: 100%;
+      margin: auto;
+      padding: 40px 10px;
+      background: rgb(0, 0, 33);
+      text-align: center;
     }
 
     .fourthsection h1 {
-      font-size: 1.9rem;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #fff;
     }
 
+    /* Items Styling */
     .items {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 50px;
-
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
     }
 
     .item {
-      flex: 1 1 calc(33.333% - 40px);
-      margin: 10px;
-      text-align: center;
+      flex: 1 1 calc(100% - 20px);
+      /* Full width for small screens */
+      max-width: 320px;
+      background: #1e1e2f;
       border-radius: 10px;
-      background: #fff;
-      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
       overflow: hidden;
-      color: #000;
-      padding: 10px;
-      font-size: 12px;
-
+      color: #fff;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 15px;
     }
 
     .item img {
-      max-width: 100%;
-      border-bottom: 1px solid #ddd;
-      border-radius: 0.5rem;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
-
-    .item img:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-    }
-
-    .item:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 6px 20px rgba(153, 79, 221, 0.6);
-      transition: all 0.3s ease;
-    }
-
-
 
     .item h3 {
+      font-size: 1.2rem;
       margin: 10px 0;
+      color: #ff5733;
     }
 
-    /* Style for the social media links */
+    .item p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* Hover Effects */
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 20px rgba(255, 87, 51, 0.6);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 15px;
+      background: rgb(0, 0, 33);
+      width: 100%;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1e1e2f;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 6px 20px rgba(255, 87, 51, 0.6);
+      /* box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4); */
+    }
+
+    .contact label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #121212;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .contact input:focus,
+    .contact textarea:focus {
+      border-color: #9d4bd9;
+      outline: none;
+    }
+
+    .contact button {
+      background: rgb(18, 18, 62);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s ease;
+      box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+    }
+
+    .contact button:hover {
+      background: rgb(153, 79, 221);
+      transform: scale(1.05);
+      color: rgb(255, 85, 0);
+
+    }
+
+    /* Footer Section */
+    .footer {
+      background-color: rgb(18, 18, 62);
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 23px 122px;
+      flex-wrap: wrap;
+      /* Enable wrapping for smaller screens */
+    }
+
+    /* Footer navigation links */
+    .footer ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      /* Wrap the list items on smaller screens */
+      gap: 15px;
+      /* Add space between links */
+      padding: 0;
+    }
+
+    .footer ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer ul li a:hover {
+      text-decoration: underline;
+      color: rgb(153, 79, 221);
+      /* Add hover color */
+    }
+
+    /* Social Media Links */
     .social-media-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      /* padding: 20px; */
+      align-items: center;
+      gap: 15px;
+      /* Adjust spacing between icons */
     }
 
     .social-media-links a {
-      font-size: 2rem;
-      /* Adjust size as needed */
+      font-size: 1.8rem;
+      /* Icon size */
       color: white;
-      /* Color for the icons */
-      transition: color 0.3s ease;
       text-decoration: none;
-      /* Remove underline */
+      transition: color 0.3s ease, transform 0.3s ease;
+      
     }
 
     .social-media-links a:hover {
       color: rgb(153, 79, 221);
-      /* Hover color */
+      /* Change color on hover */
+      transform: scale(1.2);
+      /* Slight zoom effect */
+      box-shadow: 0px 6px 20px rgba(255, 87, 51, 0.6);
+
     }
 
-    .social-media-links i {
-      transition: transform 0.3s ease;
+    /* Footer Rights Section */
+    .footer-rights {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      flex-basis: 100%;
+      /* Ensure it spans full width on smaller screens */
     }
 
-    .social-media-links a:hover i {
-      transform: scale(1.1);
-      /* Slightly enlarge the icon on hover */
+    /* General Mobile Styles */
+    @media (max-width: 576px) {
+      .firstsection {
+        display: flex;
+        flex-direction: column;
+        /* Stack items vertically */
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        /* Reduced margin for better spacing */
+        width: 100%;
+        /* Full width */
+        /* padding: 20px; */
+        /* Add padding for spacing */
+        /* height: 70vh; */
+        margin-top: 150px;
+      }
+
+      .firstsection>div {
+        width: 100%;
+      }
+
+      .leftsection {
+
+        /* Adjusted font size */
+        text-align: center;
+        /* Center text */
+        width: 100%;
+        /* Full width */
+        font-size: 30px;
+        /* Adjust for readability */
+        margin-right: 50px;
+      }
+
+      .rightsection {
+        width: 100%;
+        /* Full width */
+        text-align: center;
+        /* Center the image */
+        margin-bottom: 20px;
+        /* Space below the image */
+      }
+
+      .rightsection img {
+        width: 70%;
+        /* Reduce size for mobile */
+        max-width: 350px;
+        /* Limit the maximum width */
+        height: auto;
+        /* Maintain aspect ratio */
+        margin: 20px 0;
+        /* Add margin between image and buttons */
+      }
+
+      .secondsection p {
+        font-size: 10px;
+
+      }
+
+      .secondsection h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #555;
+      }
+
+      .buttons {
+        width: 100%;
+        /* Full width */
+        display: flex;
+        flex-direction: column;
+        /* Stack buttons vertically */
+        align-items: center;
+        /* Center buttons */
+        margin-top: 20px;
+        /* Add spacing between buttons and text */
+      }
+
+      .leftsection .btn {
+        background: rgb(18, 18, 62);
+        border-radius: 6px;
+        font-size: 1.2rem;
+        /* Adjusted font size */
+        padding: 12px 18px;
+        /* Adjust padding for buttons */
+        cursor: pointer;
+        box-shadow: gray;
+        width: 80%;
+        /* Full width for buttons */
+        margin-bottom: 10px;
+        /* Space between buttons */
+      }
+
+      .leftsection .btn a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        /* Make the link take up full button space */
+        text-align: center;
+        /* Center the text */
+      }
+
+      .leftsection .btn:hover {
+        background-color: rgb(153, 79, 221);
+        color: rgb(255, 85, 0);
+        box-shadow: 0px 4px 15px rgba(153, 79, 221, 0.4);
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      
+      .contact {
+        /* padding: 50px 15px; */
+        background: rgb(0, 0, 33);
+        width: 100%;
+        padding: 0px 30px 30px 30px;
+        margin-top: 30px;
+      }
+
+      .contact button {
+        margin-top: 10px;
+      }
+
+      .hamburger-menu {
+        margin-top: 28px;
+        margin-bottom: 28px;
+      }
+
+      .text-gray {
+        color: #555;
+      }
+
+      main hr {
+        margin: 20px 30px;
+
+        align-items: center;
+      }
+
+      /* Footer and Social Media */
+      .footer {
+        padding: 10px 20px;
+        text-align: center;
+        /* Center footer content */
+      }
+
+      .social-media-links a {
+        font-size: 1.5rem;
+        /* Smaller icons */
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer {
+        /* font-size: 1.5rem; */
+        /* Smaller icons */
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer ul {
+        justify-content: center;
+        gap: 10px;
+        /* Space out links */
+
+      }
+
+      .footer ul li a {
+        font-size: 0.9rem;
+        /* Smaller text for links */
+      }
+
+      .footer-rights {
+        font-size: 0.8rem;
+        /* Smaller rights text */
+      }
+
+      /* Hamburger Menu */
+      .hamburger-menu {
+        display: flex;
+        /* Ensure hamburger is visible on small screens */
+      }
+
+      .nav-links {
+        display: none;
+        /* Hide navigation links on small screens */
+        width: 100%;
+      }
+
+      .vertical .vertical-desc {
+        font-size: 11px;
+        text-align: justify;
+      }
+
+      .item p {
+        text-align: justify;
+      }
+    }
+
+    /* Default state for larger screens */
+    @media (min-width: 577px) {
+      .nav-links {
+        display: flex;
+        /* Visible navigation links */
+        flex-direction: row;
+        /* Horizontal alignment */
+        position: static;
+        /* Normal flow */
+        top: auto;
+        right: auto;
+        width: auto;
+        background-color: transparent;
+        /* Remove background for desktop */
+        padding: 0;
+        opacity: 1;
+        transform: translateY(0);
+        transition: none;
+        /* No animation for desktop view */
+      }
+
+      .nav-links li {
+        margin: 0 15px;
+        /* Spacing between links */
+      }
+
+      .nav-links li a {
+        color: #fff;
+        /* Adjust link color for desktop */
+        text-decoration: none;
+        font-weight: bold;
+      }
+
     }
   </style>
 </head>
@@ -490,11 +798,6 @@
   <header>
     <nav>
       <div class="left">Adnan's Portfolio</div>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
       <div class="right">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -503,6 +806,9 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact Me</a></li>
         </ul>
+        <button class="hamburger-menu" aria-label="Toggle Navigation">
+          ☰
+        </button>
       </div>
     </nav>
   </header>
@@ -521,30 +827,27 @@
         </div>
       </div>
       <div class="rightsection">
-        <img src="pg.png.png" alt="Profile Image">
+        <img src="developer.png" alt="Profile Image">
       </div>
     </section>
     <hr>
     <section class="secondsection" id="about">
       <h1>About Me</h1>
-      <div class="container">
-        <h3>Welcome to My Portfolio</h3>
-        <p>Hello! I am Adnan, a passionate and skilled developer with experience in multiple domains of software
-          development. Proficient in building dynamic websites and applications using HTML, CSS, JavaScript, and
-          frameworks like React Native. Skilled in creating scalable APIs and managing databases like MongoDB, with a
-          focus on performance optimization and seamless integration. Intermediate-level knowledge in C# for web and
-          desktop applications, including practical projects like college-purpose web apps and student management
-          systems. Continuously enhancing skills in web development, app development, and computer vision, with a
-          strong commitment to mastering advanced tools and technologies. My diverse experience and dedication to
-          learning drive my passion for creating efficient, user-focused solutions across various platforms.
-        </p>
-        <a href="#contact" class="btn">Get in Touch</a>
-      </div>
-
+      <h3>Welcome to My Portfolio</h3>
+      <p>Hello! I am Adnan, a passionate and skilled developer with experience in multiple domains of software
+        development. Proficient in building dynamic websites and applications using HTML, CSS, JavaScript, and
+        frameworks like React Native. Skilled in creating scalable APIs and managing databases like MongoDB, with a
+        focus on performance optimization and seamless integration. Intermediate-level knowledge in C# for web and
+        desktop applications, including practical projects like college-purpose web apps and student management
+        systems. Continuously enhancing skills in web development, app development, and computer vision, with a
+        strong commitment to mastering advanced tools and technologies. My diverse experience and dedication to
+        learning drive my passion for creating efficient, user-focused solutions across various platforms.
+      </p>
+      <a href="#contact" class="btn">Get in Touch</a>
     </section>
     <hr>
     <section class="thirdsection" id="workexperience">
-      <span class="text-gray">What I have done so far</span>
+      <h4 class="text-gray">What I have done so far</h4>
       <h1>Work Experience</h1>
       <div class="box">
         <div class="vertical">
@@ -553,6 +856,7 @@
             HTML Developer (2023-2024)
           </div>
           <div class="vertical-desc">
+
             As a web developer, HTML has been a foundational skill in my journey. It allows me to create structured and
             organized content for websites and applications.I am well-versed in using HTML elements and attributes to
             build functional and visually appealing web pages. I focus on creating clean, semantic, and organized
@@ -570,10 +874,7 @@
             experience combines front-end development with Django's powerful backend framework.I design templates that
             interact seamlessly with views and models in Django. This includes generating forms for user inputs and
             displaying query results from the database. Using Django's template inheritance system, I create reusable
-            HTML structures, such as headers, footers, and navigation bars, to maintain consistency across multiple
-            pages.
-
-
+            HTML structures for multiple pages.
           </div>
         </div>
         <div class="vertical">
@@ -598,8 +899,7 @@
             I have hands-on experience in C# development, utilizing it to build functional and robust applications.
             Proficient in developing Windows-based applications and web apps using C# in combination with .NET
             frameworks. Strong understanding of OOP principles, implementing modular, reusable, and maintainable code
-            structures. I strive to expand my knowledge of advanced C# concepts, libraries, and frameworks to enhance
-            application scalability and performance.
+            structures. I strive to expand my knowledge of advanced C# concepts, libraries.
           </div>
         </div>
         <div class="vertical">
@@ -645,7 +945,7 @@
               across all devices.</p>
           </div>
           <div class="item">
-            <img src="Project4.jpg" alt="Project Image" loading="lazy">
+            <img src="Project4.jpeg" alt="Project Image" loading="lazy">
             <h3>Face Recognization System</h3>
             <p>The Face Recognition System project is developing focuses on identifying and verifying individuals
               using their facial features. The project leverages advanced algorithms and techniques from computer vision
@@ -654,7 +954,7 @@
             </p>
           </div>
           <div class="item">
-            <img src="Project5.jpg" alt="Project Image" loading="lazy">
+            <img src="project4.jpg" alt="Project Image" loading="lazy">
             <h3>Cafe Management System</h3>
             <p>The Cafe Management System is design to manage tasks with esiar way and handle orders in bulk quantity.
               In this project user can add produts from menu and price will be automatically increase. The total amount
@@ -691,35 +991,85 @@
       </div>
     </section>
     <script>
-      function validateForm() {
-        const name = document.querySelector('input[name="name"]').value;
-        const email = document.querySelector('input[name="email"]').value;
-        if (!name || !email) {
-          alert('Please fill in all required fields!');
-          return false;
-        }
-        return true;
-      }
-    </script>
-    <script>
-      function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('show');
-      }
-    </script>
-    <script>
-      const element = document.getElementById('element');
-      const text = "a Web Developer";
-      let index = 0;
+      // Select necessary elements
+      const hamburgerMenu = document.querySelector('.hamburger-menu');
+      const navLinks = document.querySelector('.nav-links');
 
-      function typeText() {
-        element.textContent += text[index];
-        index++;
-        if (index < text.length) {
-          setTimeout(typeText, 100);
-        }
+      // Add click event listener to the hamburger menu
+      hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        hamburgerMenu.classList.toggle('active');
+
+        // Toggle backdrop visibility
+        backdrop.classList.toggle('show');
+      });
+
+      // Create the backdrop element and append it to the body
+      const backdrop = document.createElement('div');
+      backdrop.className = 'backdrop';
+      document.body.appendChild(backdrop);
+
+      // Add click event listener to the backdrop
+      backdrop.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        hamburgerMenu.classList.remove('active');
+        backdrop.classList.remove('show');
+      });
+
+      // Highlight active link based on scroll position
+      // Select all navigation links
+      const links = document.querySelectorAll('.nav-links li a');
+
+      // Add a scroll event listener to the window
+      window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY; // Get the current scroll position
+
+        links.forEach(link => {
+          const section = document.querySelector(link.getAttribute('href')); // Get the target section
+
+          // Ensure the section exists before checking its offsets
+          if (section) {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            // Check if the current scroll position is within the section's range
+            if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+              // Remove active class from all links
+              links.forEach(l => l.classList.remove('active'));
+
+              // Add active class to the current link
+              link.classList.add('active');
+            }
+          }
+        });
+      });
+      
+
+      // Theme toggle button
+      const toggleThemeBtn = document.createElement('button');
+      toggleThemeBtn.textContent = '🌙'; // Default to dark mode icon
+      document.body.prepend(toggleThemeBtn);
+
+      // Check if a theme is already saved in localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+        toggleThemeBtn.textContent = savedTheme === 'light' ? '🌞' : '🌙';
       }
-      typeText();
+
+      // Toggle theme button click event
+      toggleThemeBtn.addEventListener('click', () => {
+        // Toggle theme between light and dark
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? '' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+
+        // Update button icon/text
+        toggleThemeBtn.textContent = newTheme === 'light' ? '🌞' : '🌙';
+
+        // Save the theme in localStorage
+        localStorage.setItem('theme', newTheme);
+      });
     </script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
