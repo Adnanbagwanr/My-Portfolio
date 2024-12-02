@@ -976,18 +976,37 @@
     <section id="contact" class="contact">
       <div class="container">
         <h2>Contact Me</h2>
-        <form action="https:\\formsubmit.co\el\retegu" method="POST">
+        <form method="POST" action="https://formsubmit.co/bagwanadnanr09876@gmail.com" enctype="multipart/form-data"
+          rel="noopener noreferrer">
+          <!-- Hidden Input for Redirect -->
+          <input type="hidden" name="_next" value="https://https://adnanbagwanr.github.io/My-Portfolio//thank-you.html">
+
+          <!-- Hidden Input for Subject -->
+          <input type="hidden" name="_subject" value="New Contact Form Submission">
+
+          <!-- Hidden Input for CAPTCHA -->
+          <input type="hidden" name="_captcha" value="true">
+
+          <!-- Name Field -->
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" required placeholder="Name">
 
+          <!-- Email Field -->
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" required placeholder="Email Address">
 
+          <!-- Message Field -->
           <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" required placeholder="Message"></textarea>
 
+          <!-- File Upload Field (Optional) -->
+          <label for="file">Attachment (Optional)</label>
+          <input type="file" id="file" name="attachment">
+
+          <!-- Submit Button -->
           <button type="submit" class="btn">Send Message</button>
         </form>
+
       </div>
     </section>
     <script>
